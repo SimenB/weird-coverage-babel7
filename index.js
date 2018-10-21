@@ -1,6 +1,6 @@
 const fs = require("fs");
 
-const { transform } = require("babel-core");
+const { transformSync } = require("@babel/core");
 
 const { createReporter } = require("istanbul-api");
 const istanbulCoverage = require("istanbul-lib-coverage");
@@ -16,12 +16,13 @@ try {
   fs.unlinkSync(sourcemapPath);
 } catch (ignored) {}
 
-const transformResult = transform(fileSource, {
+const transformResult = transformSync(fileSource, {
   babelrc: false,
+  configFile: false,
   compact: false,
   sourceMaps: "both",
   filename,
-  presets: [require.resolve("babel-preset-flow")]
+  presets: [require.resolve("@babel/preset-flow")]
 });
 
 fs.writeFileSync(sourcemapPath, JSON.stringify(transformResult.map));

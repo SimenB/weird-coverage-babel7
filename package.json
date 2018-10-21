@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-flow": "^6.23.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-flow": "^7.0.0",
     "istanbul-api": "^2.0.6",
     "istanbul-lib-coverage": "^2.0.1",
     "istanbul-lib-instrument": "^3.0.0",
